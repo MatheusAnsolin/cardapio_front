@@ -1,24 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Card } from './components/card/card';
+import { FoodData } from './interface/FoodData';
+import { useFoodData } from './hooks/useFoodData';
 
 function App() {
+  const { data } = useFoodData();
+  //npm instal tanstack-query/react-query
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Cardápio</h1>
+      <div className="card-grid">
+        {data?.map(fooData =>
+          <Card
+            price={foodData.price}
+            title={foodData.title}
+            image={foodData.image}
+          />
+        )}
+
+      </div>
     </div>
   );
 }
