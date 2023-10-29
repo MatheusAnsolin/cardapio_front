@@ -9,7 +9,7 @@ function App() {
   const { data } = useFoodData();
   //npm instal tanstack-query/react-query
   return (
-    <div className="App">
+    <div className="container">
       <h1>Cardápio</h1>
       <div className="card-grid">
         {data?.map(fooData =>
